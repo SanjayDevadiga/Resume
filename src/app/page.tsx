@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, JSX } from 'react';
-import { Mail, Phone, Linkedin, Github, Code, MapPin, Calendar, Award, Briefcase, GraduationCap, Terminal, Lightbulb, ExternalLink, ChevronRight, Zap, Brain, Target, Database, Shield, Wifi, Lock } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Code, MapPin, Calendar, Award, Briefcase, GraduationCap, Terminal, Lightbulb, ExternalLink, ChevronRight, Zap, Brain, Target, Database, Shield, Wifi, Lock, Monitor } from 'lucide-react';
 
 interface SkillCategory {
   title: string;
@@ -54,19 +54,25 @@ export default function HackerResume(): JSX.Element {
   const skillCategories: SkillCategory[] = [
     {
       title: 'CORE_LANGUAGES',
-      skills: ['Python', 'JavaScript', 'TypeScript'],
+      skills: ['Python', 'JavaScript'],
       color: 'text-green-400',
       icon: <Code className="w-5 h-5" />
     },
     {
       title: 'AI_FRAMEWORKS',
-      skills: ['TensorFlow', 'Scikit-learn', 'Transformers', 'OpenCV', 'LangChain'],
+      skills: ['TensorFlow', 'Pandas', 'Scikit-learn', 'Transformers', 'OpenCV', 'LangChain', 'VercelAI'],
       color: 'text-purple-400',
       icon: <Brain className="w-5 h-5" />
     },
     {
+      title: 'FRONTEND_STACK',
+      skills: ['Next.js', 'React', 'HTML', 'CSS'],
+      color: 'text-cyan-400',
+      icon: <Monitor className="w-5 h-5" />
+    },
+    {
       title: 'BACKEND_STACK',
-      skills: ['Flask', 'NestJS', 'REST APIs', 'WebSockets', 'NumPy', 'Pandas'],
+      skills: ['Flask', 'Fast API', 'NestJS', 'REST APIs', 'WebSockets', 'Mongodb'],
       color: 'text-cyan-400',
       icon: <Database className="w-5 h-5" />
     },
@@ -224,12 +230,35 @@ export default function HackerResume(): JSX.Element {
                 
                 <div className="flex gap-4 justify-center">
                   {[
-                    { icon: <Linkedin className="w-5 h-5" />, color: "text-blue-400", borderColor: "border-blue-400/50", hoverColor: "hover:border-blue-400 hover:bg-blue-400/10" },
-                    { icon: <Github className="w-5 h-5" />, color: "text-purple-400", borderColor: "border-purple-400/50", hoverColor: "hover:border-purple-400 hover:bg-purple-400/10" },
-                    { icon: <Terminal className="w-5 h-5" />, color: "text-orange-400", borderColor: "border-orange-400/50", hoverColor: "hover:border-orange-400 hover:bg-orange-400/10" }
+                    {
+                      icon: <Linkedin className="w-5 h-5" />,
+                      url: "https://www.linkedin.com/in/sanjay-5584a8230/",
+                      color: "text-blue-400",
+                      borderColor: "border-blue-400/50",
+                      hoverColor: "hover:border-blue-400 hover:bg-blue-400/10"
+                    },
+                    {
+                      icon: <Github className="w-5 h-5" />,
+                      url: "https://github.com/SanjayDevadiga",
+                      color: "text-purple-400",
+                      borderColor: "border-purple-400/50",
+                      hoverColor: "hover:border-purple-400 hover:bg-purple-400/10"
+                    },
+                    {
+                      icon: <Code className="w-5 h-5" />,
+                      url: "https://leetcode.com/u/SanjuDevadiga/",
+                      color: "text-orange-400",
+                      borderColor: "border-orange-400/50",
+                      hoverColor: "hover:border-orange-400 hover:bg-orange-400/10"
+                    }
                   ].map((social, index) => (
-                    <a key={index} href="#" 
-                       className={`group flex items-center justify-center w-12 h-12 bg-gray-900 border ${social.borderColor} ${social.hoverColor} rounded-lg transition-all duration-300 hover:scale-110`}>
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group flex items-center justify-center w-12 h-12 bg-gray-900 border ${social.borderColor} ${social.hoverColor} rounded-lg transition-all duration-300 hover:scale-110`}
+                    >
                       <span className={`${social.color} group-hover:scale-110 transition-transform`}>
                         {social.icon}
                       </span>
